@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Tech Interview Dashboard & Job Openings</title>
+    <meta name="description" content="View upcoming SK Tech interviews, available interview slots and current IT job openings." />
+    <meta name="theme-color" content="#07101f" />
+    <link rel="icon" type="image/png" href="sk-tech-logo.png?v=20260920-2" />
+    <link rel="canonical" href="https://www.mysktech.com/interviews.html" />
+    <script src="analytics.js?v=20260920" defer></script>
+
+    <link rel="stylesheet" href="dashboard.css?v=20260816-3">
+    <link rel="stylesheet" href="jobs.css?v=20260915-pagination">
+    <link rel="stylesheet" href="experience.css?v=20260816-3">
+    <link rel="stylesheet" href="dashboard-3d.css?v=20261001-mobile-table">
+    <link rel="stylesheet" href="premium-shell.css?v=20260816-3">
+    <link rel="stylesheet" href="schedule-interview.css?v=20261001-mobile-stack">
+</head>
+
+<body class="dashboard-page">
+<a class="skip-link" href="#dashboardContent">Skip to dashboard</a>
+
+<div class="animated-bg">
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="shape s3"></div>
+</div>
+<div class="particles" id="particles"></div>
+
+<div class="header">
+    <img src="sk-tech-logo.png" alt="SK Tech logo" width="66" height="66">
+    <div class="header-copy">
+      <h1>SK TECH Interview Dashboard</h1>
+      <p>Interviews, available slots and live job opportunities in one place.</p>
+    </div>
+    <span class="live-pill">LIVE DASHBOARD</span>
+</div>
+<main id="dashboardContent" class="dashboard-shell">
+    <div class="cards">
+
+    <!-- Cards with additional classes for styling and icons -->
+    <button type="button" class="card total" data-icon="📊" onclick="switchInterviewTab('all')">
+        <span class="card-count" id="totalCount">0</span>
+        <span class="card-label">Upcoming Interviews</span>
+    </button>
+
+    <button type="button" class="card today" onclick="switchInterviewTab('today')">
+        <span class="dynamic-calendar" aria-hidden="true"><small id="calendarMonth">---</small><strong id="calendarDay">--</strong></span>
+        <span class="card-count" id="todayCount">0</span>
+        <span class="card-label">Today's Interviews</span>
+    </button>
+
+    <button type="button" class="card job-new" data-icon="✨" onclick="filterJobsByAge('new')">
+        <span class="card-count" id="newJobsCount">0</span>
+        <span class="card-label">New Openings</span>
+    </button>
+
+    <button type="button" class="card job-old" data-icon="📁" onclick="filterJobsByAge('old')">
+        <span class="card-count" id="oldJobsCount">0</span>
+        <span class="card-label">Old Openings</span>
+    </button>
+
+</div>
+
+<!-- Home button to navigate back to the main page -->
+<div class="action-row">
+  <div class="quick-actions">
+    <a href="index.html" class="home-btn">← Home</a>
+    <button type="button" class="schedule-btn" id="openScheduleModal">＋ Schedule Interview</button>
+    <button type="button" class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+  </div>
+  <span id="lastUpdated" class="last-updated" aria-live="polite"></span>
+</div>
+
+<div class="schedule-modal" id="scheduleModal" hidden>
+  <div class="schedule-modal__backdrop" data-close-schedule></div>
+  <section class="schedule-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="scheduleModalTitle">
+    <header class="schedule-modal__header">
+      <img class="schedule-modal__logo" src="sk-tech-logo.png" alt="SK Tech logo" width="58" height="58">
+      <div class="schedule-modal__title">
+        <span class="schedule-modal__eyebrow">INTERVIEW SCHEDULING</span>
+        <h2 id="scheduleModalTitle">Schedule an Interview</h2>
+        <p><strong>SK TECH</strong> · Your Future, Our Mission</p>
+      </div>
+      <button type="button" class="schedule-modal__close" data-close-schedule aria-label="Close schedule interview form">×</button>
+    </header>
+
+    <form id="scheduleInterviewForm" class="schedule-form" novalidate>
+      <div class="schedule-progress" aria-label="Interview form progress">
+        <div><strong id="scheduleProgressTitle">Candidate details</strong><span id="scheduleProgressText">Step 1 of 4</span></div>
+        <span class="schedule-progress__track"><i id="scheduleProgressBar"></i></span>
+      </div>
+      <section class="schedule-form__section is-active" data-schedule-step="Candidate details">
+        <h3><span>1</span> Candidate details</h3>
+        <div class="schedule-form__grid">
+          <label>Email<input type="email" id="scheduleEmail" autocomplete="email" placeholder="name@example.com" required></label>
+          <label>SK Tech Register ID<input type="text" id="scheduleRegisterId" value="SK" pattern="SK[1-9][0-9]*" title="Use an ID such as SK1, SK2 or SK10" required></label>
+          <label>Full Name<input type="text" id="scheduleFullName" autocomplete="name" placeholder="Candidate full name" required></label>
+          <label>Batch<select id="scheduleBatch" required><option value="">Choose batch</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+        </div>
+      </section>
+
+      <section class="schedule-form__section" data-schedule-step="Interview details" hidden>
+        <h3><span>2</span> Interview details</h3>
+        <div class="schedule-form__grid">
+          <label>Round<select id="scheduleRound" required><option value="">Choose round</option><option>Assessment</option><option>AI Assessment</option><option>Round 1</option><option>Round 2</option><option>Round 3</option><option>Round 4</option><option>Reschedule Round 1</option><option>Reschedule Round 2</option><option>Reschedule Round 3</option><option>Reschedule Round 4</option><option>HR Manager Round</option><option>AI Interview</option><option value="Interview Supporter not avaible">Interview Supporter not available</option></select></label>
+          <label>Technologies Required<select id="scheduleTechnology" required><option value="">Choose technology</option><option>QA Engineer</option><option>Data Engineer</option><option>Full Stack Dot Net Developer</option><option>Java</option><option>Python</option><option value="Interview Supporter not avaible">Interview Supporter not available</option><option>SAP</option><option value="__other_option__">Other</option></select></label>
+          <label id="scheduleOtherTechnologyWrap" hidden>Other Technology<input type="text" id="scheduleOtherTechnology" placeholder="Enter technology"></label>
+          <label class="schedule-field--wide">Interview Company<input type="text" id="scheduleCompany" pattern="[A-Za-z][A-Za-z0-9 &amp;.-]{1,49}" title="Enter the actual interview company name" placeholder="Company name" required></label>
+        </div>
+      </section>
+
+      <section class="schedule-form__section" data-schedule-step="HR contact" hidden>
+        <h3><span>3</span> HR contact</h3>
+        <div class="schedule-form__grid schedule-form__grid--three">
+          <label>HR Name<input type="text" id="scheduleHrName" pattern="[A-Za-z][A-Za-z .'-]{1,49}" title="Enter a valid HR name" placeholder="HR full name" required></label>
+          <label>HR Number<input type="tel" id="scheduleHrNumber" pattern="\+?[0-9][0-9 -]{7,18}[0-9]" title="Enter a valid HR number with country code" placeholder="+919XXXXXXXXX" required></label>
+          <label>HR Mail ID<input type="email" id="scheduleHrEmail" placeholder="hr@company.com" required></label>
+        </div>
+      </section>
+
+      <section class="schedule-form__section" data-schedule-step="Date and time" hidden>
+        <h3><span>4</span> Date and time</h3>
+        <div class="schedule-form__grid schedule-form__grid--three">
+          <label>Interview Date<input type="date" id="scheduleDate" required></label>
+          <label>Interview Time (From)<span class="modern-time-picker"><input type="text" id="scheduleTimeFrom" data-modern-time="start" placeholder="Select start time" autocomplete="off" readonly required><button type="button" class="modern-time-picker__icon" aria-label="Choose start time">◷</button><span class="modern-time-panel" hidden></span></span></label>
+          <label>Interview Time (To)<span class="modern-time-picker"><input type="text" id="scheduleTimeTo" data-modern-time="end" placeholder="Select end time" autocomplete="off" readonly required><button type="button" class="modern-time-picker__icon" aria-label="Choose end time">◷</button><span class="modern-time-panel" hidden></span></span></label>
+        </div>
+      </section>
+
+      <div class="schedule-form__status" id="scheduleFormStatus" role="status" aria-live="polite"></div>
+      <div class="schedule-form__actions">
+        <button type="button" class="schedule-form__cancel" data-close-schedule>Cancel</button>
+        <span class="schedule-form__nav">
+          <button type="button" class="schedule-form__back" id="scheduleBackButton" hidden>← Back</button>
+          <button type="button" class="schedule-form__next" id="scheduleNextButton">Continue →</button>
+          <button type="submit" class="schedule-form__submit" hidden>Save Interview</button>
+        </span>
+      </div>
+    </form>
+  </section>
+</div>
+
+<!-- Tabs for filtering -->
+<div class="tabs">
+    <button class="tab-btn active" data-tab="all">All Upcoming</button>
+    <button class="tab-btn" data-tab="today">Today</button>
+    <button class="tab-btn" data-tab="tomorrow">Tomorrow</button>
+    <button class="tab-btn" data-tab="available">Available Slots</button>
+    <button class="tab-btn" data-tab="jobs">Job Openings</button>
+</div>
+
+<div class="schedule-legend" role="group" aria-label="Schedule colour guide">
+  <span><i class="legend-dot today-dot"></i>Today</span>
+  <span><i class="legend-dot tomorrow-dot"></i>Tomorrow</span>
+  <span><i class="legend-dot day-after-dot"></i>Next Weekday</span>
+  <span><i class="legend-dot future-dot"></i>Later Weekdays</span>
+  <span><i class="legend-dot conflict-dot"></i>Conflict</span>
+  <span><i class="legend-dot unavailable-dot"></i>Panel/Weekend Unavailable</span>
+</div>
+
+<!-- Removed search input as per new requirements -->
+<div class="search-section" style="display:none;"></div>
+
+<div class="table-shell">
+<table aria-label="Upcoming interviews">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Round</th>
+<th>Date</th>
+<th>From</th>
+<th>To</th>
+<th>Batch</th>
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+</div>
+
+<!-- Job Openings Section -->
+<div id="jobsContainer" class="jobs-container" style="display:none;">
+  <div class="jobs-header">
+    <div><h2>Current Job Openings</h2><p>Search opportunities by role, company, skill or location.</p></div>
+  </div>
+  <div class="job-toolbar">
+    <label class="job-search"><span>⌕</span><input id="jobSearch" type="search" placeholder="Search jobs, skills or location" autocomplete="off"></label>
+    <select id="jobTypeFilter" aria-label="Filter by employment type"><option value="">All job types</option></select>
+    <select id="jobSort" aria-label="Sort jobs"><option value="newest">Newest first</option><option value="title">Job title A–Z</option></select>
+  </div>
+  <div id="jobsGrid" class="jobs-grid">
+    <!-- Job cards injected here -->
+  </div>
+</div>
+</main>
+
+<script src="shared-utils.js?v=20260816-3"></script>
+<script src="dashboard.js?v=20261001-mobile-cards"></script>
+<script src="schedule-interview.js?v=local-preview-12"></script>
+<script src="jobs.js?v=20260920-analytics"></script>
+<script src="experience.js?v=20260915-pagination" defer></script>
+<script>
+(function() {
+  const particles = document.getElementById('particles');
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (10 + Math.random() * 20) + 's';
+    p.style.animationDelay = Math.random() * 10 + 's';
+    p.style.opacity = Math.random() * 0.5 + 0.2;
+    particles.appendChild(p);
+  }
+})();
+</script>
+
+<!-- Job Details Modal -->
+<div id="jobModal" class="job-modal" style="display:none;">
+  <div class="job-modal-content">
+    <span class="job-modal-close">&times;</span>
+    <div id="jobModalBody"></div>
+  </div>
+</div>
+
+<!-- Instagram Generator Modal -->
+<div id="instaModal" class="job-modal" style="display:none;">
+  <div class="job-modal-content insta-modal-content">
+    <span class="job-modal-close" onclick="closeInstaModal()">&times;</span>
+    <h3>Instagram Post</h3>
+    <div id="instaPreview" class="insta-preview"></div>
+    <textarea id="instaCaption" class="insta-caption" readonly></textarea>
+    <div class="modal-actions">
+      <button class="btn-copy" onclick="copyInstaCaption()">Copy Caption</button>
+      <button class="btn-close" onclick="closeInstaModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

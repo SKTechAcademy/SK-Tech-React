@@ -1,0 +1,63 @@
+/* Unified futuristic AI visual system */
+:root{--ai-navy:#06101f;--ai-panel:rgba(17,28,46,.82);--ai-line:rgba(145,202,255,.15);--ai-text:#f5f8ff;--ai-muted:#9eabc0;--ai-cyan:#49d8ff;--ai-blue:#168bff;--ai-orange:#ff922e}
+
+body.auth-page,body.portal-page{background:#07101f;color:var(--ai-text);position:relative;isolation:isolate;overflow-x:hidden}
+body.auth-page::before,body.portal-page::before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 78% 28%,rgba(48,92,255,.22),transparent 34%),radial-gradient(circle at 18% 78%,rgba(0,222,255,.13),transparent 32%),linear-gradient(135deg,#050817,#0c1230 52%,#171044)}
+body.auth-page::after,body.portal-page::after{content:"";position:fixed;right:-7vw;top:9vh;width:min(52vw,720px);aspect-ratio:1;z-index:-2;pointer-events:none;background:url("assets/ai-globe-3d.webp") center/contain no-repeat;opacity:.13;filter:saturate(1.2);animation:referenceGlobeFloat 9s ease-in-out infinite}
+
+body.auth-page{display:grid;grid-template-columns:minmax(320px,530px) 1fr;align-items:center;justify-content:initial;padding:clamp(24px,5vw,80px)}
+body.auth-page .login-container{width:100%;max-width:530px;padding:42px;border:1px solid var(--ai-line);border-radius:25px;background:linear-gradient(145deg,rgba(18,31,52,.92),rgba(8,16,29,.82));box-shadow:0 35px 90px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.08);backdrop-filter:blur(22px);text-align:left}
+body.auth-page .login-container::before{content:"SECURE CAREER PORTAL";display:inline-flex;margin-bottom:24px;padding:7px 10px;border:1px solid rgba(73,216,255,.22);border-radius:99px;color:#86e8ff;background:rgba(73,216,255,.07);font-size:10px;font-weight:900;letter-spacing:1.2px}
+body.auth-page .login-container .logo{margin:0 0 18px;width:78px;height:78px;border-radius:18px;background:rgba(255,255,255,.06);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+body.auth-page .login-container .logo img{width:66px;height:66px}
+body.auth-page .login-container h2{color:#fff;font-size:36px;letter-spacing:-1px}
+body.auth-page .login-container p.subtitle{color:var(--ai-muted)}
+body.auth-page .login-form label{color:#dce8fa}
+body.auth-page .login-form input{border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(255,255,255,.065);color:#fff;padding:15px}
+body.auth-page .login-form input:focus{border-color:var(--ai-cyan);box-shadow:0 0 0 3px rgba(73,216,255,.12)}
+body.auth-page .login-form button{border-radius:12px;padding:15px;background:linear-gradient(135deg,#087cff,#11b2ff)}
+
+body.portal-page header{position:sticky;top:0;z-index:20;margin:18px auto 0;width:min(1300px,calc(100% - 32px));padding:14px 18px;border:1px solid var(--ai-line);border-radius:18px;background:rgba(10,21,38,.84);backdrop-filter:blur(19px);box-shadow:0 18px 45px rgba(0,0,0,.25)}
+body.portal-page header .logo img{border-radius:50%;object-fit:contain}
+body.portal-page header nav a{padding:9px 11px;border-radius:9px;color:#dbe8fa}
+body.portal-page header nav a:hover{background:rgba(255,255,255,.08);color:#73e0ff}
+body.portal-page main{position:relative;z-index:2;padding-top:40px}
+body.portal-page h1{font-size:clamp(28px,4vw,43px);letter-spacing:-1.2px;color:#fff}
+body.portal-page .user-info{color:#b2bfd2}
+body.portal-page .user-info strong{color:#60dcff}
+body.portal-page .card-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+body.portal-page .card{position:relative;overflow:hidden;border:1px solid var(--ai-line);border-radius:19px;background:linear-gradient(145deg,rgba(27,42,65,.92),rgba(13,23,39,.86));box-shadow:0 20px 55px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.07)}
+body.portal-page .card::after{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,var(--ai-blue),var(--ai-cyan))}
+body.portal-page .card h3{color:#aebbd0}
+body.portal-page .card .count{color:#fff;font-size:38px}
+body.portal-page h2{margin:26px 0 12px;color:#fff}
+body.portal-page table{display:block;overflow-x:auto;border:1px solid var(--ai-line);border-radius:17px;background:rgba(10,19,33,.82);box-shadow:0 22px 55px rgba(0,0,0,.28);backdrop-filter:blur(15px)}
+body.portal-page table thead{background:rgba(255,255,255,.075)}
+body.portal-page table tbody tr:nth-child(odd){background:rgba(255,255,255,.035)}
+body.portal-page table th,body.portal-page table td{color:#d7e1f0;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap}
+body.portal-page footer{color:#8593a9}
+
+body.dashboard-page::after{content:"";position:fixed;right:-7vw;top:8vh;width:min(48vw,700px);aspect-ratio:1;z-index:-2;pointer-events:none;background:url("assets/ai-globe-3d.webp") center/contain no-repeat;opacity:.11;filter:saturate(1.2);animation:referenceGlobeFloat 10s ease-in-out infinite}
+body.home-page .ai-hero{min-height:calc(100vh - 96px);padding-top:88px;padding-bottom:110px;isolation:isolate}
+body.home-page .ai-hero::after{content:"";position:absolute;right:0;top:0;width:58%;height:100%;z-index:0;background:radial-gradient(circle at 58% 45%,rgba(38,114,255,.18),transparent 34%),radial-gradient(circle at 72% 54%,rgba(109,65,255,.15),transparent 42%);opacity:1;mask-image:linear-gradient(to left,black 72%,transparent)}
+body.home-page .ai-stage{z-index:2}.home-page .hero-content{z-index:3}
+body.home-page .neural-core,body.home-page .ai-node,body.home-page .ai-connector{display:none}
+body.home-page .reference-ai-visual{position:absolute;inset:2%;z-index:1;display:grid;place-items:center;perspective:1000px}
+body.home-page .reference-ai-visual img{position:relative;z-index:2;width:min(96%,610px);height:auto;filter:drop-shadow(0 35px 55px rgba(0,0,0,.48)) drop-shadow(0 0 32px rgba(61,149,255,.26));animation:referenceGlobeFloat 7s ease-in-out infinite;transform-origin:center}
+.globe-aura{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(55,154,255,.18),rgba(94,54,255,.08) 50%,transparent 72%);filter:blur(22px);animation:globeAuraPulse 4s ease-in-out infinite}
+@keyframes referenceGlobeFloat{0%,100%{transform:translateY(0) rotateY(-2deg)}50%{transform:translateY(-14px) rotateY(3deg) scale(1.015)}}
+@keyframes globeAuraPulse{50%{transform:scale(1.09);opacity:.68}}
+body.home-page .ai-stage::before{opacity:.25}
+body.home-page .career-card.cc1{left:1%;right:auto;top:10%}
+body.home-page .career-card.cc2{left:4%;bottom:10%}
+body.home-page .career-card.cc3{right:0;bottom:7%}
+body.home-page .ai-capability-strip{margin:-72px auto 28px}
+body.home-page .stats{margin:0 auto 70px}
+
+@media(max-width:760px){
+ body.auth-page{display:flex;padding:18px;background:#07101f}body.auth-page::before{background:radial-gradient(circle at 70% 22%,rgba(53,111,255,.22),transparent 34%),linear-gradient(135deg,#050817,#111039)}body.auth-page .login-container{padding:30px 22px}
+ body.portal-page header{align-items:flex-start;gap:12px}body.portal-page header nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:3px}body.portal-page header nav a{margin:0;font-size:12px}body.portal-page main{padding:28px 14px}body.portal-page .card-container{grid-template-columns:1fr}
+ body.home-page .ai-hero{min-height:auto;padding-top:56px;padding-bottom:38px}body.home-page .ai-hero::after{width:100%;opacity:.2;background-position:64% center;mask-image:linear-gradient(to bottom,black,transparent 84%)}body.home-page .ai-capability-strip{margin:12px auto 24px}body.home-page .stats{margin:0 14px 50px}body.dashboard-page::after{width:100%;opacity:.12}
+ body.home-page .reference-ai-visual{inset:3% 0}body.home-page .reference-ai-visual img{width:min(92%,480px)}body.auth-page::after,body.portal-page::after,body.dashboard-page::after{right:-30vw;top:18vh;width:110vw;opacity:.055}
+ body.home-page .ai-stage{min-height:390px;width:100%;max-width:100%;margin:0;transform:none;overflow:visible}body.home-page .career-card{display:none!important}body.home-page .reference-ai-visual{inset:0;overflow:visible}body.home-page .reference-ai-visual img{width:min(76vw,410px);max-height:380px;object-fit:contain}
+}

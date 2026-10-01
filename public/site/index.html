@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SK Tech Academy | Learn • Practice • Grow • Get Placed</title>
+<meta name="description" content="SK Tech Academy provides practical IT training, mock interviews, resume support and placement assistance for freshers and experienced professionals." />
+<meta name="theme-color" content="#071226" />
+<link rel="icon" type="image/png" href="sk-tech-logo.png?v=20260920-2" />
+<link rel="canonical" href="https://www.mysktech.com/" />
+<meta property="og:title" content="SK Tech Academy | Learn • Practice • Get Placed" />
+<meta property="og:description" content="Industry-focused IT training, interview preparation and placement support." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.mysktech.com/" />
+<meta property="og:image" content="https://www.mysktech.com/sk-tech-logo.png" />
+<script src="analytics.js?v=20260920" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="experience.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+html{scroll-behavior:smooth}
+
+:root{
+  --navy:#061a3b;
+  --blue:#0866ff;
+  --orange:#ff8500;
+  --green:#18b34b;
+  --text:#d1d7e6;
+}
+
+body{
+  background:#0a1124;
+  color:#f4f7fc;
+  overflow-x:hidden;
+  position:relative;
+}
+
+.animated-bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-2;
+  overflow:hidden;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.shape{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0.6;
+  animation: float 20s infinite ease-in-out;
+}
+
+.s1{width:400px;height:400px;background:#0866ff;top:10%;left:-10%;animation-delay:0s}
+.s2{width:300px;height:300px;background:#ff8500;top:40%;right:-5%;animation-delay:5s}
+.s3{width:250px;height:250px;background:#18b34b;bottom:10%;left:30%;animation-delay:10s}
+.s4{width:350px;height:350px;background:#8b5cf6;top:60%;left:60%;animation-delay:15s}
+
+@keyframes float{
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 30px) scale(0.9); }
+}
+
+.particles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  pointer-events:none;
+}
+
+.particle{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:rgba(255,255,255,0.5);
+  border-radius:50%;
+  animation: particleFloat 15s infinite linear;
+}
+
+@keyframes particleFloat{
+  0% { transform: translateY(100vh) scale(0); opacity:0; }
+  10% { opacity:1; }
+  90% { opacity:1; }
+  100% { transform: translateY(-10vh) scale(1); opacity:0; }
+}
+
+.topbar{
+  background:rgba(6,26,59,0.85);
+  backdrop-filter:blur(10px);
+  color:white;
+  padding:10px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.topbar .right{
+  display:flex;
+  gap:22px;
+  align-items:center;
+}
+
+.topbar .right span{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+
+.topbar .right i{
+  color:var(--orange);
+  font-size:13px;
+}
+
+.header{
+  background:rgba(6,26,59,0.7);
+  backdrop-filter:blur(12px);
+  padding:18px 60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{width:60px;height:60px;object-fit:contain;border-radius:50%;animation:logoGlow 4s ease-in-out infinite}
+
+@keyframes logoGlow{
+  0%, 100% { filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(255,133,0,0.4)); }
+}
+.logo h2{font-size:26px;color:#f4f7fc}
+.logo span{color:var(--orange)}
+.logo small{display:block;font-size:12px;color:var(--text);letter-spacing:.5px}
+
+nav a{
+  margin:0 16px;
+  text-decoration:none;
+  color:#d8e4fb;
+  font-weight:700;
+  transition:.3s;
+  position:relative;
+}
+
+nav a::after{
+  content:'';
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--orange);
+  transition:width 0.3s ease;
+}
+
+nav a:hover{color:var(--orange)}
+nav a:hover::after{width:100%}
+
+.callbtn{
+  background:linear-gradient(135deg,#0866ff,#00a3ff);
+  color:#fff;
+  text-decoration:none;
+  padding:10px 20px;
+  border-radius:12px;
+  font-weight:800;
+  font-size:15px;
+  box-shadow:0 8px 20px rgba(8,102,255,.25);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:all 0.3s ease;
+}
+
+.callbtn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(8,102,255,.4);
+}
+
+.hero{
+  min-height:90vh;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  padding:80px 70px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-content{position:relative;z-index:1}
+
+.hero h1{
+  font-size:68px;
+  line-height:1.1;
+  margin-bottom:24px;
+  font-weight:800;
+  animation: fadeInUp 1s ease;
+}
+
+.hero h1 span{
+  color:var(--orange);
+  display:inline-block;
+  animation: glowText 3s ease-in-out infinite;
+}
+
+@keyframes glowText{
+  0%, 100% { text-shadow: 0 0 10px rgba(255,133,0,0.5); }
+  50% { text-shadow: 0 0 30px rgba(255,133,0,0.9), 0 0 60px rgba(255,133,0,0.5); }
+}
+
+.hero p{
+  font-size:22px;
+  line-height:1.6;
+  margin-bottom:36px;
+  font-weight:500;
+  color:var(--text);
+  animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+.actions{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+  animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:white;
+  padding:20px 32px;
+  border-radius:16px;
+  font-weight:800;
+  font-size:16px;
+  box-shadow:0 15px 35px rgba(0,0,0,.3);
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.btn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition:left 0.6s;
+}
+
+.btn:hover::before{left:100%}
+.btn:hover{transform:translateY(-5px) scale(1.02); box-shadow:0 25px 50px rgba(0,0,0,0.4);}
+
+.blue{background:linear-gradient(135deg,#0866ff,#008fff)}
+
+.hero .btn.blue{
+  box-shadow:0 0 25px rgba(8,102,255,0.5);
+  animation:btnPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes btnPulse{
+  0%, 100% { box-shadow: 0 0 25px rgba(8,102,255,0.5); transform: scale(1); }
+  50% { box-shadow: 0 0 45px rgba(8,102,255,0.85); transform: scale(1.03); }
+}
+.orange{background:linear-gradient(135deg,#ff8500,#ffb000)}
+.green{background:linear-gradient(135deg,#18b34b,#22c55e)}
+
+.hero-tags{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+.hero-tags span{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  padding:12px 20px;
+  border-radius:30px;
+  font-weight:700;
+  font-size:14px;
+  backdrop-filter:blur(5px);
+  transition:all 0.3s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.hero-tags span i{
+  color:var(--orange);
+  font-size:14px;
+}
+
+.hero-tags span:hover{
+  background:rgba(255,133,0,.15);
+  border-color:rgba(255,133,0,.4);
+  transform:translateY(-3px);
+}
+
+.support-box{
+  justify-self:end;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:24px;
+  padding:40px 35px;
+  width:280px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  animation: floatBox 6s ease-in-out infinite, fadeIn 1s ease 0.8s backwards;
+}
+
+@keyframes floatBox{
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.support-box h2{font-size:56px;color:var(--orange);font-weight:800}
+.support-box p{font-size:20px;font-weight:700;margin:10px 0 20px}
+
+@keyframes fadeInUp{
+  from { opacity:0; transform:translateY(40px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadeIn{
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.stagger > *{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.6s ease;
+}
+
+.stagger.active > *:nth-child(1){opacity:1;transform:translateY(0);transition-delay:0s}
+.stagger.active > *:nth-child(2){opacity:1;transform:translateY(0);transition-delay:0.1s}
+.stagger.active > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:0.2s}
+.stagger.active > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:0.3s}
+.stagger.active > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:0.4s}
+.stagger.active > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.5s}
+.stagger.active > *:nth-child(7){opacity:1;transform:translateY(0);transition-delay:0.6s}
+.stagger.active > *:nth-child(8){opacity:1;transform:translateY(0);transition-delay:0.7s}
+.stagger.active > *:nth-child(9){opacity:1;transform:translateY(0);transition-delay:0.8s}
+.stagger.active > *:nth-child(10){opacity:1;transform:translateY(0);transition-delay:0.9s}
+
+.stats{
+  max-width:1200px;
+  margin:-60px auto 60px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:40px 30px;
+  position:relative;
+  z-index:10;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.stat{
+  text-align:center;
+  border-right:1px solid rgba(255,255,255,0.1);
+}
+
+.stat:last-child{border-right:none}
+.stat h2{font-size:42px;color:var(--orange);font-weight:800;margin-bottom:8px}
+.stat p{color:var(--text);font-weight:600;font-size:15px}
+
+.section{padding:90px 60px;position:relative}
+.section.alt{background:rgba(255,255,255,0.02)}
+
+.title{text-align:center;margin-bottom:50px}
+.title h2{font-size:40px;text-transform:uppercase;color:#f4f7fc;font-weight:800;margin-bottom:15px}
+.title h2 span{color:var(--orange)}
+.title p{color:var(--text);font-size:18px;max-width:600px;margin:auto}
+
+.line{
+  width:80px;
+  height:4px;
+  background:linear-gradient(90deg,var(--blue),var(--orange));
+  margin:20px auto;
+  border-radius:20px;
+}
+
+.story{
+  display:grid;
+  grid-template-columns:.65fr 1.35fr;
+  gap:40px;
+  max-width:1200px;
+  margin:auto;
+  align-items:start;
+}
+
+.why{
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  transition:all 0.3s ease;
+}
+
+.why:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(0,0,0,.3);
+}
+
+.why h2{font-size:30px;margin-bottom:20px;color:#f4f7fc}
+.why h2 span{color:var(--orange)}
+.why p{line-height:1.8;color:var(--text);font-size:16px;margin-bottom:18px}
+
+.check{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:14px 0;
+  font-weight:700;
+  color:#f4f7fc;
+}
+
+.dot{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--orange));
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  flex-shrink:0;
+}
+
+.frames{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+
+.frame{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+  transition:all 0.4s ease;
+  position:relative;
+}
+
+.frame:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 25px 60px rgba(0,0,0,.3);
+  border-color:rgba(255,133,0,.3);
+}
+
+.frame img{width:100%;height:180px;object-fit:cover;transition:transform 0.5s ease}
+.frame:hover img{transform:scale(1.1)}
+
+.num{
+  position:absolute;
+  left:15px;
+  top:15px;
+  background:var(--orange);
+  color:white;
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:16px;
+  z-index:2;
+}
+
+.frame div:last-child{padding:22px;text-align:center}
+.frame h3{font-size:18px;color:#f4f7fc;margin-bottom:10px;font-weight:700}
+.frame p{font-size:14px;color:var(--text);font-weight:600}
+
+.main-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:.8fr 1.6fr;
+  gap:40px;
+}
+
+.courses,.tech-panel,.batch{
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  padding:35px;
+  transition:all 0.3s ease;
+}
+
+.courses:hover,.batch:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(0,0,0,.3);
+}
+
+.courses h2,.tech-panel h2{font-size:28px;color:#f4f7fc;margin-bottom:25px;font-weight:800}
+
+.course{
+  margin:16px 0;
+  color:#f4f7fc;
+  font-weight:700;
+  line-height:1.5;
+  padding:12px 16px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.04);
+  transition:all 0.3s ease;
+}
+
+.course:hover{
+  background:rgba(255,133,0,.1);
+  transform:translateX(8px);
+}
+
+.course small{display:block;color:var(--text);font-weight:500;margin-left:24px;margin-top:4px}
+
+.arrow{color:var(--orange);font-weight:900;margin-right:8px}
+
+.tech-panel{background:linear-gradient(135deg,rgba(6,26,59,.9),rgba(8,42,93,.9));color:white}
+.tech-panel h2{text-align:center;color:white}
+
+.tech-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+
+.tech{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  padding:28px 10px;
+  text-align:center;
+  font-weight:800;
+  font-size:14px;
+  line-height:1.3;
+  transition:all 0.4s ease;
+  cursor:default;
+}
+
+.tech:hover{
+  background:rgba(255,255,255,.14);
+  transform:translateY(-8px) scale(1.05);
+  box-shadow:0 15px 35px rgba(0,0,0,0.3);
+  border-color:var(--orange);
+}
+
+.tech i{display:block;font-size:32px;margin-bottom:12px;color:#ffc857;transition:transform 0.4s ease}
+.tech:hover i{transform:scale(1.2) rotate(10deg)}
+
+.batch{
+  margin-top:25px;
+  background:linear-gradient(135deg,rgba(6,26,59,.9),rgba(16,47,98,.9));
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.batch h2{font-size:30px;font-weight:800}
+.batch h2 span{color:var(--orange)}
+.batch p{font-size:17px;line-height:1.6;color:var(--text)}
+
+.logos{
+  max-width:1200px;
+  margin:auto;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;
+  padding:30px;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  transition:all 0.3s ease;
+}
+
+.logos:hover{
+  transform:translateY(-5px);
+  box-shadow:0 30px 60px rgba(0,0,0,.3);
+}
+
+.company{
+  text-align:center;
+  font-weight:900;
+  font-size:24px;
+  color:#f4f7fc;
+  padding:20px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.04);
+  transition:all 0.3s ease;
+  cursor:default;
+}
+
+.company:hover{
+  transform:scale(1.1) translateY(-5px);
+  background:rgba(255,255,255,0.1);
+}
+
+.company:nth-child(1){color:#ff6b6b}
+.company:nth-child(2){color:#4dabf7}
+.company:nth-child(3){color:#f4f7fc}
+.company:nth-child(4){color:#b197fc}
+.company:nth-child(5){color:#69db7c}
+.company:nth-child(6){color:#74c0fc}
+.company:nth-child(7){color:#ff8787}
+
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.testimonial{
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  transition:all 0.3s ease;
+  position:relative;
+}
+
+.testimonial:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(0,0,0,.3);
+}
+
+.quote-icon{
+  font-size:48px;
+  color:var(--orange);
+  opacity:0.6;
+  line-height:1;
+  margin-bottom:10px;
+}
+
+.testimonial p{
+  line-height:1.8;
+  color:var(--text);
+  font-size:16px;
+  margin-bottom:20px;
+}
+
+.testimonial-author{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.author-avatar{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--orange));
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:16px;
+  flex-shrink:0;
+}
+
+.testimonial-author b{
+  color:#f4f7fc;
+  display:block;
+  margin-bottom:4px;
+}
+
+.testimonial-author p{
+  margin:0;
+  font-size:14px;
+}
+
+.bottom-grid{
+  max-width:800px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.achievement,.ready{
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
+  transition:all 0.3s ease;
+}
+
+.ready:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(0,0,0,.3);
+}
+
+.achievement h2,.ready h2{color:#f4f7fc;margin-bottom:20px;font-size:24px;font-weight:800}
+.ready p{line-height:1.8;color:var(--text);font-size:16px}
+
+.achievement{
+  background:linear-gradient(135deg,rgba(6,26,59,.95),rgba(10,45,98,.95));
+  color:white;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,133,0,0.3);
+}
+
+.achievement::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,133,0,0.15) 0%, transparent 60%);
+  animation:achievementGlow 6s ease-in-out infinite;
+}
+
+@keyframes achievementGlow{
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.achievement h2{color:white;position:relative;z-index:1}
+.cup{
+  font-size:72px;
+  animation:trophy 3s ease-in-out infinite;
+  position:relative;
+  z-index:1;
+  filter:drop-shadow(0 0 15px rgba(255,133,0,0.6));
+}
+
+.sparkle{
+  position:absolute;
+  color:#ffc857;
+  font-size:20px;
+  animation:sparkle 2s ease-in-out infinite;
+  z-index:1;
+}
+
+.sparkle.s1{top:25%;left:25%;animation-delay:0s}
+.sparkle.s2{top:30%;right:25%;animation-delay:0.7s}
+.sparkle.s3{bottom:35%;left:30%;animation-delay:1.4s}
+
+@keyframes sparkle{
+  0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1) rotate(180deg); opacity: 1; }
+}
+
+@keyframes trophy{
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-10deg) translateY(-5px); }
+  75% { transform: rotate(10deg) translateY(-5px); }
+}
+
+.achievement b{
+  font-size:42px;
+  color:var(--orange);
+  font-weight:800;
+  text-shadow:0 0 20px rgba(255,133,0,0.5);
+  position:relative;
+  z-index:1;
+}
+
+.ready{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+}
+
+.ready::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition:left 0.6s;
+}
+
+.ready:hover::before{left:100%}
+
+.ready .btn{
+  padding:14px 24px;
+  font-size:15px;
+  margin-top:15px;
+  animation:readyPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes readyPulse{
+  0%, 100% { box-shadow: 0 0 20px rgba(8,102,255,0.4); transform: scale(1); }
+  50% { box-shadow: 0 0 35px rgba(8,102,255,0.7); transform: scale(1.03); }
+}
+
+footer{
+  background:rgba(6,26,59,0.9);
+  backdrop-filter:blur(10px);
+  color:white;
+  padding:60px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.4fr 1fr;
+  gap:40px;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+
+footer img{width:100px;background:white;border-radius:12px;padding:6px}
+footer h3{margin-bottom:20px;color:#f4f7fc;font-size:18px}
+footer p,footer a{color:var(--text);text-decoration:none;line-height:1.9;transition:all 0.3s ease}
+footer a:hover{color:var(--orange);padding-left:5px}
+
+.social-links a{
+  color:var(--text);
+  font-size:22px;
+  margin-right:15px;
+  transition:all 0.3s ease;
+  display:inline-block;
+}
+
+.social-links a:hover{
+  color:var(--orange);
+  transform:translateY(-5px) scale(1.2);
+}
+
+.copy{
+  background:rgba(3,16,37,0.95);
+  color:white;
+  text-align:center;
+  padding:18px;
+  font-size:14px;
+}
+
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  background:linear-gradient(135deg,#18b34b,#22c55e);
+  color:white;
+  text-decoration:none;
+  padding:16px 24px;
+  border-radius:50px;
+  font-weight:800;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  z-index:999;
+  transition:all 0.3s ease;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.whatsapp:hover{
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+@media(max-width:950px){
+  .topbar{display:none}
+  .header{padding:15px 20px;flex-direction:column;gap:15px}
+  nav{display:flex;flex-wrap:wrap;justify-content:center}
+  .hero{grid-template-columns:1fr;text-align:center;padding:60px 20px;min-height:auto}
+  .hero h1{font-size:42px}
+  .support-box{display:none}
+  .actions,.hero-tags{justify-content:center}
+  .stats,.story,.main-grid,.bottom-grid,footer{grid-template-columns:1fr}
+  .frames,.tech-grid,.logos,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1)}
+  .stat:last-child{border-bottom:none}
+  .section{padding:60px 20px}
+  .hero h1{font-size:36px}
+}
+
+@media(max-width:600px){
+  .testimonials-grid{grid-template-columns:1fr}
+}
+</style>
+<link rel="stylesheet" href="home-ai.css?v=20260816-3">
+<link rel="stylesheet" href="premium-shell.css?v=20260816-3">
+<link rel="stylesheet" href="conversion.css?v=20260816-3">
+</head>
+
+<body class="home-page">
+<a class="skip-link" href="#home">Skip to main content</a>
+
+<div class="animated-bg">
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="shape s3"></div>
+  <div class="shape s4"></div>
+</div>
+<div class="particles" id="particles"></div>
+
+<div class="topbar">
+  <span>Welcome to SK Tech Academy – Your Career Growth Partner</span>
+  <div class="right">
+    <span><i class="fas fa-envelope"></i> support@mysktech.com</span>
+    <span><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="logo">
+    <img src="sk-tech-logo.png" alt="SK Tech Logo">
+    <div>
+      <h2>SK <span>TECH</span></h2>
+      <small>Learn • Practice • Grow • Get Placed</small>
+    </div>
+  </div>
+  <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#why">About Us</a>
+    <a href="#courses">Courses</a>
+    <a href="#placement">Placement</a>
+    <a href="interviews.html">Interview Dashboard</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+  <a class="callbtn" href="tel:+919353447457">
+    <i class="fas fa-phone"></i> +91 9353447457
+  </a>
+</header>
+
+<section id="home" class="hero ai-hero">
+  <div class="hero-content">
+    <div class="ai-eyebrow">AI-powered career acceleration</div>
+    <h1>Build skills.<br>Become <span>job ready.</span></h1>
+    <div class="ai-role-line">Your path to becoming a <strong id="aiRole">Full Stack Developer</strong></div>
+    <p class="hero-summary">Practical training, real interview preparation and continuous placement support—built around your career goal, not a generic syllabus.</p>
+    <div class="actions">
+      <a class="btn blue" target="_blank" href="https://forms.gle/h9aqB2KtMqqB9rmc6"><i class="fas fa-user-plus"></i> Candidate Registration<br><small>Start Your Journey</small></a>
+      <a class="btn ai-secondary-btn" href="interviews.html"><i class="fas fa-chart-line"></i> Explore Live Opportunities</a>
+    </div>
+    <div class="trust-row">
+      <span><i class="fas fa-check-circle"></i> Real-time projects</span>
+      <span><i class="fas fa-check-circle"></i> Expert mock interviews</span>
+      <span><i class="fas fa-check-circle"></i> Placement guidance</span>
+    </div>
+  </div>
+  <div class="ai-stage">
+    <div class="reference-ai-visual">
+      <span class="globe-aura"></span>
+      <img src="assets/ai-globe-3d.webp" alt="Futuristic 3D connected AI globe" width="1100" height="1100">
+    </div>
+    <span class="ai-node n1"></span><span class="ai-node n2"></span><span class="ai-node n3"></span><span class="ai-node n4"></span>
+    <span class="ai-connector c1"></span><span class="ai-connector c2"></span><span class="ai-connector c3"></span>
+    <div class="neural-core"><div class="orbit"><i class="orbit-dot"></i></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="core-sphere"></div></div>
+    <div class="career-card cc1"><div class="card-top"><span class="mini-icon"><i class="fas fa-code"></i></span><span class="status">LIVE</span></div><b>Industry-ready skills</b><p>Projects mapped to real roles</p><div class="progress"><i style="width:86%"></i></div></div>
+    <div class="career-card cc2"><div class="card-top"><span class="mini-icon"><i class="fas fa-microphone-alt"></i></span><span class="status">READY</span></div><b>Interview intelligence</b><p>Practice, feedback, improve</p><div class="progress"><i style="width:74%"></i></div></div>
+    <div class="career-card cc3"><div class="card-top"><span class="mini-icon"><i class="fas fa-rocket"></i></span><span class="status">GROWING</span></div><b>Career momentum</b><p>Profile to placement support</p><div class="progress"><i style="width:92%"></i></div></div>
+  </div>
+</section>
+
+<div class="ai-capability-strip reveal">
+  <div class="capability"><i class="fas fa-brain"></i><div><b>Focused Learning</b><small>Role-based roadmaps</small></div></div>
+  <div class="capability"><i class="fas fa-laptop-code"></i><div><b>Live Experience</b><small>Production-style projects</small></div></div>
+  <div class="capability"><i class="fas fa-user-check"></i><div><b>Interview Ready</b><small>Mocks with feedback</small></div></div>
+  <div class="capability"><i class="fas fa-briefcase"></i><div><b>Placement Support</b><small>Until you get placed</small></div></div>
+</div>
+
+<div class="stats reveal">
+  <div class="stat"><h2 data-count="1000">0</h2><p>Students Trained</p></div>
+  <div class="stat"><h2 data-count="500">0</h2><p>Placements</p></div>
+  <div class="stat"><h2 data-count="15">0</h2><p>Technologies</p></div>
+  <div class="stat"><h2 data-count="100">0</h2><p>Placement Support %</p></div>
+</div>
+
+<section class="conversion-section lead-section lead-section-priority" id="quick-register">
+  <div class="lead-copy reveal"><span>Ready to start?</span><h2>Get a Free Career Guidance Call</h2><p>Share the basic details below. Your information opens directly in WhatsApp so you remain in control before sending it.</p><div class="lead-points"><b><i class="fas fa-check"></i> Course guidance</b><b><i class="fas fa-check"></i> Career roadmap</b><b><i class="fas fa-check"></i> Placement support information</b></div></div>
+  <form id="quickLeadForm" class="quick-lead-form reveal" novalidate>
+    <label>Full Name<input id="leadName" name="name" autocomplete="name" maxlength="60" required placeholder="Enter your full name"></label>
+    <label>Phone Number<input id="leadPhone" name="phone" inputmode="tel" autocomplete="tel" maxlength="18" required placeholder="Example: +91 9876543210"></label>
+    <label>Interested Technology<select id="leadCourse" name="course" required><option value="">Select technology</option><option>.NET Full Stack</option><option>Java Full Stack</option><option>React / Frontend</option><option>DevOps / Cloud</option><option>QA / Automation Testing</option><option>Data Engineering / Analytics</option><option>SAP</option><option>Career Guidance</option></select></label>
+    <label>Experience<select id="leadExperience" name="experience" required><option value="">Select experience</option><option>Fresher</option><option>0–2 Years</option><option>2–5 Years</option><option>5+ Years</option></select></label>
+    <p id="leadError" class="lead-error" role="alert"></p>
+    <button type="submit"><i class="fab fa-whatsapp"></i> Request Guidance on WhatsApp</button>
+    <small>We do not submit anything until you confirm it in WhatsApp.</small>
+  </form>
+</section>
+
+<section class="conversion-section live-jobs-section" id="live-jobs">
+  <div class="conversion-heading reveal">
+    <span>Updated from our live opportunities</span>
+    <h2>Latest <em>Job Openings</em></h2>
+    <p>Explore current roles and move directly to the complete opportunities dashboard.</p>
+  </div>
+  <div id="homeJobsGrid" class="home-jobs-grid" aria-live="polite">
+    <div class="job-skeleton"></div><div class="job-skeleton"></div><div class="job-skeleton"></div>
+  </div>
+  <div class="section-action"><a class="conversion-btn" data-jobs-nav href="interviews.html#jobs">View All Live Opportunities <i class="fas fa-arrow-right"></i></a></div>
+</section>
+
+<section class="conversion-section journey-section" id="journey">
+  <div class="conversion-heading reveal"><span>Your path with SK TECH</span><h2>From Learning to <em>Placement</em></h2></div>
+  <div class="journey-grid reveal">
+    <article><b>01</b><i class="fas fa-user-plus"></i><h3>Register</h3><p>Tell us your career goal and preferred technology.</p></article>
+    <article><b>02</b><i class="fas fa-laptop-code"></i><h3>Learn</h3><p>Build practical skills through role-focused training.</p></article>
+    <article><b>03</b><i class="fas fa-code-branch"></i><h3>Build Projects</h3><p>Gain real implementation and project experience.</p></article>
+    <article><b>04</b><i class="fas fa-comments"></i><h3>Prepare</h3><p>Attend mock interviews and improve with feedback.</p></article>
+    <article><b>05</b><i class="fas fa-briefcase"></i><h3>Get Support</h3><p>Receive continuous opportunity and placement guidance.</p></article>
+  </div>
+</section>
+
+<section id="why" class="section">
+  <div class="title reveal">
+    <h2>Why Choose <span>SK Tech</span> Academy?</h2>
+    <div class="line"></div>
+    <p>We provide end-to-end career support to help you achieve your dream job.</p>
+  </div>
+  <div class="story reveal">
+    <div class="why">
+      <h2>Build Your Career <span>With Us</span></h2>
+      <p>Join thousands of candidates who have transformed their careers through practical training and real interview support.</p>
+      <div class="check"><span class="dot">✓</span> Real-time Industry Training</div>
+      <div class="check"><span class="dot">✓</span> Mock Interviews & Feedback</div>
+      <div class="check"><span class="dot">✓</span> Resume Building & Profile Support</div>
+      <div class="check"><span class="dot">✓</span> Interview Scheduling Assistance</div>
+      <div class="check"><span class="dot">✓</span> Placement Guidance Until You Get Placed</div>
+    </div>
+    <div class="frames stagger">
+      <div class="frame"><span class="num">1</span><img loading="lazy" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Professional learning online"><div><h3>Still Struggling To Switch Company?</h3><p>You're not alone.</p></div></div>
+      <div class="frame"><span class="num">2</span><img loading="lazy" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80" alt="Professional preparing for an interview"><div><h3>We Help You Crack Real Interviews</h3><p>With expert guidance.</p></div></div>
+      <div class="frame"><span class="num">3</span><img loading="lazy" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80" alt="Interview support session"><div><h3>Real-time Interview Support</h3><p>Be confident, be ready.</p></div></div>
+      <div class="frame"><span class="num">4</span><img loading="lazy" src="https://images.unsplash.com/photo-1551836022-8b2858c9c69b?auto=format&fit=crop&w=700&q=80" alt="Mock interview practice"><div><h3>Mock Interviews That Make You Better</h3><p>Practice. Improve. Succeed.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="courses" class="section alt">
+  <div class="title reveal">
+    <h2>Courses We <span>Offer</span></h2>
+    <div class="line"></div>
+    <p>Industry-relevant programs designed to get you hired.</p>
+  </div>
+  <div class="main-grid reveal">
+    <div class="courses stagger">
+      <h2>Our Programs</h2>
+      <div class="course"><span class="arrow">➜</span>Full Stack .NET Development<small>C#, ASP.NET, MVC, SQL Server, Web API, React</small></div>
+      <div class="course"><span class="arrow">➜</span>Java Full Stack Development<small>Core Java, Spring Boot, Hibernate, React</small></div>
+      <div class="course"><span class="arrow">➜</span>QA / ETL Testing<small>Manual Testing, Selenium, SQL, ETL</small></div>
+      <div class="course"><span class="arrow">➜</span>Data Analyst<small>Excel, SQL, Power BI, Python, Statistics</small></div>
+      <div class="course"><span class="arrow">➜</span>Data Engineering<small>Python, SQL, ETL, Cloud, Big Data</small></div>
+      <div class="course"><span class="arrow">➜</span>DevOps Engineering<small>AWS, Docker, Kubernetes, Jenkins, Git</small></div>
+      <div class="course"><span class="arrow">➜</span>SAP Modules<small>FICO, MM, SD, PP, HCM, BASIS</small></div>
+    </div>
+
+    <div>
+      <div class="tech-panel">
+        <h2>Technologies We Support</h2>
+        <div class="tech-grid stagger">
+          <div class="tech"><i class="fab fa-microsoft"></i>.NET</div>
+          <div class="tech"><i class="fab fa-java"></i>Java</div>
+          <div class="tech"><i class="fas fa-vial"></i>QA / ETL</div>
+          <div class="tech"><i class="fas fa-chart-bar"></i>Data Analyst</div>
+          <div class="tech"><i class="fas fa-database"></i>Data Engineer</div>
+          <div class="tech"><i class="fas fa-infinity"></i>DevOps</div>
+          <div class="tech"><i class="far fa-gem"></i>SAP</div>
+          <div class="tech"><i class="fas fa-user-tie"></i>Business Analyst</div>
+          <div class="tech"><i class="fas fa-brain"></i>GenAI Engineer</div>
+          <div class="tech"><i class="fas fa-cloud"></i>Azure Cloud</div>
+        </div>
+      </div>
+      <div class="batch">
+        <h2>Weekday & Weekend<br><span>Batches Available</span></h2>
+        <p>Flexible timings<br>Live interactive classes<br>Practical learning</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="placement" class="section">
+  <div class="title reveal">
+    <h2>Placed In <span>Top Companies</span></h2>
+    <div class="line"></div>
+    <p>Our candidates are working in leading MNCs across India.</p>
+  </div>
+  <div class="logos stagger">
+    <div class="company">TCS</div>
+    <div class="company">Infosys</div>
+    <div class="company">Accenture</div>
+    <div class="company">Wipro</div>
+    <div class="company">Capgemini</div>
+    <div class="company">HCL</div>
+    <div class="company">Tech Mahindra</div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="title reveal">
+    <h2>What Our Students <span>Say</span></h2>
+    <div class="line"></div>
+  </div>
+  <div class="testimonials-grid stagger">
+    <div class="testimonial">
+      <div class="quote-icon">❝</div>
+      <p>"SK Tech Academy helped me build confidence, improve my communication and crack multiple interviews."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RK</div>
+        <div>
+          <b>Rahul Kumar</b>
+          <p>.NET Developer at Mphasis</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="quote-icon">❝</div>
+      <p>"The mock interviews and resume support were game changers. I got placed within 2 months of joining."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">PS</div>
+        <div>
+          <b>Priya Sharma</b>
+          <p>Java Developer at Infosys</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="quote-icon">❝</div>
+      <p>"Best training institute for freshers. The trainers explain everything with real-time examples."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AP</div>
+        <div>
+          <b>Arun Patel</b>
+          <p>Data Analyst at TCS</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="quote-icon">❝</div>
+      <p>"I switched my career from non-IT to IT thanks to SK Tech. Forever grateful for the support."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SR</div>
+        <div>
+          <b>Sneha Rao</b>
+          <p>QA Engineer at Wipro</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="bottom-grid stagger">
+    <div class="achievement">
+      <h2>Our Achievement</h2>
+      <div class="cup">🏆</div>
+      <span class="sparkle s1">✦</span>
+      <span class="sparkle s2">✦</span>
+      <span class="sparkle s3">✦</span>
+      <p><b data-count="100" data-suffix="%">0%</b><br>Dedication</p>
+      <p><b data-count="0" data-suffix="%">0%</b><br>Compromise</p>
+    </div>
+    <div class="ready">
+      <h2>Ready To Start?</h2>
+      <p>Register today and get expert guidance for your dream job.</p>
+      <a class="btn blue" target="_blank" href="https://forms.gle/h9aqB2KtMqqB9rmc6"><i class="fas fa-arrow-right"></i> Register Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="conversion-section faq-section" id="faq">
+  <div class="conversion-heading reveal"><span>Quick answers</span><h2>Frequently Asked <em>Questions</em></h2></div>
+  <div class="faq-list reveal">
+    <details><summary>Who can join SK TECH training?<i class="fas fa-plus"></i></summary><p>Freshers, career-gap candidates and experienced professionals can join based on their career goals.</p></details>
+    <details><summary>Is training available online?<i class="fas fa-plus"></i></summary><p>Contact our support team to confirm the available batches and learning format for your selected technology.</p></details>
+    <details><summary>What placement support is provided?<i class="fas fa-plus"></i></summary><p>Support includes profile guidance, practical preparation, mock interviews and access to relevant opportunities.</p></details>
+    <details><summary>How can I view current job openings?<i class="fas fa-plus"></i></summary><p>Use the Interview Dashboard and open the Job Openings tab to search, filter and apply for available roles.</p></details>
+  </div>
+</section>
+
+<footer id="contact" class="reveal">
+  <div>
+    <img src="sk-tech-logo.png" alt="SK Tech Logo">
+    <p>SK Tech Academy is committed to helping candidates achieve their career goals through quality training, real-time projects and placement support.</p>
+  </div>
+  <div>
+    <h3>Quick Links</h3>
+    <p><a href="#home">Home</a></p>
+    <p><a href="#why">About Us</a></p>
+    <p><a href="#courses">Courses</a></p>
+    <p><a href="#placement">Placement</a></p>
+  </div>
+  <div>
+    <h3>Contact Us</h3>
+    <p><a href="tel:+919353447457"><i class="fas fa-phone"></i> +91 9353447457</a></p>
+    <p><a href="mailto:support@mysktech.com"><i class="fas fa-envelope"></i> support@mysktech.com</a></p>
+    <p><a href="https://www.mysktech.com" target="_blank"><i class="fas fa-globe"></i> www.mysktech.com</a></p>
+    <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+  </div>
+  <div>
+    <h3>Follow Us</h3>
+    <p class="social-links">
+      <a href="https://www.facebook.com/share/1Cyr7YgBVY/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/____sk_tech_____?igsh=MWUwenM3Ym5lbGI1bg==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </p>
+    <br>
+    <a class="btn green" href="https://wa.me/919353447457" target="_blank">Chat on WhatsApp</a>
+  </div>
+</footer>
+
+<div class="copy">© 2026 SK Tech Academy. All Rights Reserved.</div>
+<a class="whatsapp" target="_blank" href="https://wa.me/919353447457"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<nav class="mobile-action-bar" aria-label="Quick actions"><a href="tel:+919353447457"><i class="fas fa-phone"></i><span>Call</span></a><a class="primary" href="#quick-register"><i class="fas fa-user-plus"></i><span>Register</span></a><a target="_blank" href="https://wa.me/919353447457"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a></nav>
+<script src="experience.js?v=20260816-3" defer></script>
+<script src="home-ai.js?v=20260816-3" defer></script>
+<script src="conversion.js?v=20260915-details" defer></script>
+
+<script>
+const particles = document.getElementById('particles');
+for (let i = 0; i < 50; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (10 + Math.random() * 20) + 's';
+  p.style.animationDelay = Math.random() * 10 + 's';
+  p.style.opacity = Math.random() * 0.5 + 0.2;
+  particles.appendChild(p);
+}
+
+const reveals = document.querySelectorAll('.reveal, .stagger');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('active');
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+const counters = document.querySelectorAll('[data-count]');
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = parseInt(entry.target.getAttribute('data-count'));
+      const suffix = entry.target.getAttribute('data-suffix') || (target === 100 ? '%' : '+');
+      const duration = 2000;
+      const startTime = performance.now();
+      const update = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = Math.floor(target * progress);
+        entry.target.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => countObserver.observe(c));
+</script>
+
+</body>
+</html>
